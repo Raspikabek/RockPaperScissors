@@ -1,42 +1,44 @@
-var userChoice = prompt("Do you choose rock, paper or scissors?");
-var computerChoice = Math.random();
-if (computerChoice < 0.34) {
-	computerChoice = "rock";
-    console.log("The computer choose Rock!");
-} else if(computerChoice <= 0.67) {
-	computerChoice = "paper";
-    console.log("The computer choose Paper!");
-} else {
-	computerChoice = "scissors";
-    console.log("The computer choose Scissors!");
-}
-var compare = function(choice1, choice2){
+var userChoice = prompt("Do you choose rock, paper or scissors?"); //The Player must input rock, paper or scissors
+var computerChoice = Math.random(); //Random between 0 and 1. This is the Random selection of the Computer.
+
+	if (computerChoice < 0.34) {
+		computerChoice = "rock";
+	    console.log("The computer choose Rock!");
+	} else if(computerChoice <= 0.67) {
+		computerChoice = "paper";
+	    console.log("The computer choose Paper!");
+	} else {
+		computerChoice = "scissors";
+	    console.log("The computer choose Scissors!");
+	}
+	
+var compare = function(choice1, choice2){ //This function compare the results between the Player versus the Computer Random choice.
     if (choice1 === choice2){
         return "The result is a tie!";
     }
     if (choice1 === "rock"){
     if (choice2 === "scissors"){
-        return "Rock wins";
+        return "You Win!";
     }else 
-    {
-        return "Paper wins";
+    {	
+        return "Computer Wins";
     }
 }
     if (choice1 === "paper"){
         if(choice2 === "rock"){
-            return "Paper wins";
+            return "You Win!";
         }else
         {
-            return "Scissors wins";
+            return "Computer Wins";
         }
     }
     if (choice1 === "scissors"){
         if (choice2 === "rock"){
-            return "Rock wins";
+            return "Computer Wins";
         }else
         {
-            return "Scissors wins";
+            return "You Win!";
         }
     }
 };
-console.log(compare(userChoice, computerChoice));
+alert("The computer choose " + computerChoice + "\n" + compare(userChoice, computerChoice)); //Result.
